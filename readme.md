@@ -41,25 +41,37 @@ In this protocol, two Python environments are required to finish all steps:
 
     After conda is installed:
     1. download or clone this repository
-    2. open the system terminal and change directory to this repository
-    3. simply create a new virtual environment using provided requirements.txt file in the root of the repository:
+    2. open the anaconda prompt and change directory to this repository
+    3. add conda-forge channel
+        ```bash
+        conda config --add channels conda-forge
+        ```
+    4. simply create a new virtual environment using provided requirements.txt file in the root of the repository:
         ```bash
         conda create --name brainoware_analysis --file requirements.txt
         ``` 
-    4. activate created analysis environment
+    5. activate created analysis environment
         ```bash
         conda activate brainoware_analysis
         ```
-    5. For files with *.py suffix, run
+    6. Manually install spykes [credits: [KordingLab](https://github.com/KordingLab/spykes)]
+        ```bash
+        pip install -e .\spykes-master
+        ```
+    7. Install ipykernel and register the kernel in the jupyter notebook
+        ```bash
+        pip install ipykernel
+        python -m ipykernel install --user --name=brainoware_analysis --display-name "Python (brainoware_analysis)"
+        ```
+    8. For files with *.py suffix, run
         ```bash
         python *.py
         ```
-    6. For files with *.ipynb suffix, run
+    9. For files with *.ipynb suffix, run
         ```bash
-        jupyter notebook notebook.ipynb
+        jupyter notebook *.ipynb
         ```
-        install ipykernel if missing it: `conda install ipykernel`
-
+        after entering the notebook page, select brainoware_analysis kernel in the upper right corner of the page and run the code one block by one block.
 ## Citation
 If you're using this repository in your research, please cite the associated Nature Protocol article.
 

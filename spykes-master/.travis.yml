@@ -1,0 +1,12 @@
+language: python
+env:
+    - PYTHON=2.7
+    - PYTHON=3.5
+install:
+    - pip install -e .[develop]
+    - pip install coveralls
+script:
+    - python setup.py test
+    - python setup.py flake
+after_success:
+    - coveralls

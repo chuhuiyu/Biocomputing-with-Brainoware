@@ -1,0 +1,8 @@
+[run]
+branch = True
+source = spykes
+include = */spykes/*
+omit =
+    */setup.py
+    */spykes/io/datasets.py
+    */__init__.py
