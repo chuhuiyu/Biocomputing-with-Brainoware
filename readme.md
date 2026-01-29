@@ -48,7 +48,7 @@ In this protocol, two Python environments are required to finish all steps:
         ```
     4. simply create a new virtual environment using provided requirements.txt file in the root of the repository:
         ```bash
-        conda create --name brainoware_analysis --file requirements.txt
+        conda create -f environment.yml
         ``` 
     5. activate created analysis environment
         ```bash
