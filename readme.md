@@ -46,9 +46,15 @@ In this protocol, two Python environments are required to finish all steps:
         ```bash
         conda config --add channels conda-forge
         ```
-    4. simply create a new virtual environment using provided requirements.txt file in the root of the repository:
+        **for MacOS user, also run this line:**
         ```bash
-        conda create -f environment.yml
+        conda config --env --set subdir osx-64
+        # In macOS, Conda no longer builds or keeps Python 3.7 because it’s end-of-life. When you run this line, you force Conda to use the older Intel macOS (osx-64) repository, where Python 3.7 packages still exist, so the installation succeeds even though it’s effectively using a legacy platform.
+        ```
+    4. Create a new virtual environment using provided environment.yml file in the root of the repository 
+    **[Don't forget to change the directory to this repository!]**
+        ```bash
+        conda env create --name brainoware_analysis -f environment.yml
         ``` 
     5. activate created analysis environment
         ```bash
@@ -58,8 +64,9 @@ In this protocol, two Python environments are required to finish all steps:
         ```bash
         pip install -e .\spykes-master
         ```
-    7. Install ipykernel and register the kernel in the jupyter notebook
+    7. Install jupyter notebook, ipykernel, and register the kernel in the jupyter notebook
         ```bash
+        pip install notebook
         pip install ipykernel
         python -m ipykernel install --user --name=brainoware_analysis --display-name "Python (brainoware_analysis)"
         ```
@@ -71,7 +78,7 @@ In this protocol, two Python environments are required to finish all steps:
         ```bash
         jupyter notebook *.ipynb
         ```
-        after entering the notebook page, select brainoware_analysis kernel in the upper right corner of the page and run the code one block by one block.
+        after entering the notebook page, select brainoware_analysis kernel in the upper right corner of the page (or in the navigation bar -  kernel - change kernel) and run the code one block by one block.
 ## Citation
 If you're using this repository in your research, please cite the associated Nature Protocol article.
 
