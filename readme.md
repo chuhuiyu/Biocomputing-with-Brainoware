@@ -56,13 +56,13 @@ In this protocol, two Python environments are required to finish all steps:
         ```bash
         conda env create --name brainoware_analysis -f environment.yml
         ``` 
-    5. activate created analysis environment
+    5. Activate created analysis environment
         ```bash
         conda activate brainoware_analysis
         ```
     6. Manually install spykes [credits: [KordingLab](https://github.com/KordingLab/spykes)]
         ```bash
-        pip install -e .\spykes-master
+        pip install -e spykes-master
         ```
     7. Install jupyter notebook, ipykernel, and register the kernel in the jupyter notebook
         ```bash
@@ -74,10 +74,13 @@ In this protocol, two Python environments are required to finish all steps:
         ```bash
         python *.py
         ```
+        e.g. procedure_2/1_evoked_response/psth_plot.py
     9. For files with *.ipynb suffix, run
         ```bash
         jupyter notebook *.ipynb
         ```
+        e.g. procedure_3/1_Information_encoding.ipynb
+        
         after entering the notebook page, select brainoware_analysis kernel in the upper right corner of the page (or in the navigation bar -  kernel - change kernel) and run the code one block by one block.
 ## Citation
 If you're using this repository in your research, please cite the associated Nature Protocol article.
