@@ -3,7 +3,7 @@
 This repository contains the code implementation for the Brainoware.
 
 ## Overview
-This GITHUB code repository provides code and resources related to Brainoware's hardware properties and software framework as described in the associated Nature Protocol paper submission.
+This GITHUB code repository provides code and resources related to Brainoware's hardware properties and software framework as described in the associated Nature Protocols paper submission.
 
 ## Contents
 - Procedure 2
@@ -83,7 +83,7 @@ In this protocol, two Python environments are required to finish all steps:
         
         after entering the notebook page, select brainoware_analysis kernel in the upper right corner of the page (or in the navigation bar -  kernel - change kernel) and run the code one block by one block.
 ## Citation
-If you're using this repository in your research, please cite the associated Nature Protocol article.
+If you're using this repository in your research, please cite the associated Nature Protocols article.
 
 ## License
 See LICENSE file for details.
