@@ -1,0 +1,1 @@
+This ipynb notebook is made for running in Google colab GPU runtime (https://colab.research.google.com/). Since kilosort requires Nvidia GPU hardware and large RAM to support its calculation, We recommend opening and running this notebook in Google colab for easier environment setup and implementation. 

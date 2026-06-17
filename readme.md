@@ -6,6 +6,12 @@ This repository contains the code implementation for the Brainoware.
 This GITHUB code repository provides code and resources related to Brainoware's hardware properties and software framework as described in the associated Nature Protocols paper submission.
 
 ## Contents
+- Procedure 1 — Spike sorting & functional connectivity [**sorting environment**] (see [`procedure_1/README.md`](procedure_1/README.md))
+    - 1_kilosort_functional_connectivity_local
+        - kilosort.ipynb — spike sorting (Kilosort2) + functional connectivity, run locally
+        - fc_example_data.raw.h5 [**required raw file**; download [here](https://www.dropbox.com/scl/fi/yuw74vcwpnr5bnj7juy1w/fc_example_data.raw.h5?rlkey=0ry7a9fmdssw2b451k6k6l7h1&st=dzrdfhrv&dl=0) and save under this directory]
+    - 1_kilosort_functional_connectivity_colab
+        - Kilosort_colab.ipynb — spike sorting (Kilosort4) + functional connectivity, run in Google Colab ([Open In Colab](https://colab.research.google.com/drive/1e2R7HG9jlgmnkg3S3OtvWFQ2vGpSd6Ej?usp=sharing))
 - Procedure 2
     -  evoked response
         - evoked_response_MEA.py [**maxlab environment**]
@@ -27,9 +33,50 @@ This GITHUB code repository provides code and resources related to Brainoware's 
     - 3_Information_decoding.ipynb [**analysis environment**]
     - 4_Readout_layer_training_and_prediction.ipynb [**analysis environment**]
     - related datasets and result files
+## Requirements
+
+This protocol uses three separate environments. The exact versions we tested on are listed below.
+
+### sorting environment
+
+Used for Procedure 1 (spike sorting with Kilosort + functional connectivity). Two interchangeable options are provided — see [`procedure_1/README.md`](procedure_1/README.md) for full setup instructions.
+
+| Option | Sorter | Key requirements |
+|--------|--------|------------------|
+| **Local** (`kilosort.ipynb`) | Kilosort2 | MATLAB + required toolboxes, a MATLAB-compatible C++ compiler (Windows: Visual Studio Community 2017; Linux/macOS: `g++`), a CUDA-capable NVIDIA GPU (CUDA mex files compiled via `mexGPUall`), Python 3.8+ with `spikeinterface`, `numpy`, `pandas`, `matplotlib`, `networkx`, `numba`, `plotly`, `h5py` |
+| **Colab** (`Kilosort_colab.ipynb`) | Kilosort4 | Google Colab GPU runtime with High RAM (>40 GB, e.g. A100/H100); all dependencies installed automatically by the notebook |
+
+### maxlab environment
+| Software | Version |
+|----------|---------|
+| MaxLab Live software | 25.1.8.2 (63ce7015b) |
+| Python | 3.8.10 |
+| Conda | 24.5.0 |
+| maxlab | provided by MaxWell Biosystems |
+
+### analysis environment
+Created from the provided `environment.yml`. Core packages and pinned versions:
+
+| Package | Version |
+|---------|---------|
+| Python | 3.7 |
+| h5py | 3.7.0 |
+| matplotlib | 3.5.3 |
+| numpy | 1.21.5 |
+| pandas | 1.3.5 |
+| scikit-learn | 1.0.2 |
+| scipy | 1.7.3 |
+| librosa | 0.8.1 |
+| spykes | - | 
+See [`environment.yml`](environment.yml) for the authoritative dependency list.
+
 ## Getting Started
 
-In this protocol, two Python environments are required to finish all steps:
+In this protocol, three environments are required to finish all steps:
+- sorting environment
+
+    Environment for Procedure 1 (spike sorting with Kilosort + functional connectivity). You can either run the **local** notebook (`kilosort.ipynb`, Kilosort2 — needs MATLAB, a C++ compiler, and a CUDA NVIDIA GPU) or the **Colab** notebook (`Kilosort_colab.ipynb`, Kilosort4 — runs on a Google Colab GPU + High RAM runtime with no local setup). See [`procedure_1/README.md`](procedure_1/README.md) for step-by-step instructions.
+
 - maxlab environment
 
     Global Python environment on the PC that connects to the MaxOne High-Density Microelectrode Array (HD-MEA) System. This environment requires *maxlab*, a Python MEA stimulation library developed by MaxWell biosystems, pre-installed in the system Python package directory (…/python3.8/site-packages/maxlab) to enable electrical stimulation on the MaxOne MEA recording unit through a Python script. Ask [MaxWell biosystems](https://www.mxwbio.com/) for help with maxlab environment setup (info@mxwbio.com)

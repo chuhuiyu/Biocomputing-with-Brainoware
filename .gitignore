@@ -1,2 +1,3 @@
 *.raw.h5
 procedure_3/3_Information_decoding/spike_stimulation_file/*.csv
+procedure_1/1_kilosort_functional_connectivity_local/kilosort2/
