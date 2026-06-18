@@ -78,5 +78,5 @@ for ax, pattern, name in zip(axes, [P1, P2], ["Pattern 1", "Pattern 2"]):
     cbar.ax.yaxis.label.set_size(fontsize)
 
 plt.tight_layout()
-plt.savefig(os.path.join(here, "fig2e_spatial_raster.svg"), format="svg")
+plt.savefig(os.path.join(here, "fig3e_spatial_raster.svg"), format="svg")
 plt.show()
