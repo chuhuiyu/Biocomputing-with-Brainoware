@@ -18,7 +18,7 @@ from spykes.plot.popvis import PopVis
 
 ## read spike and stimulation timing files ##
 path = ""
-filename = "psth_exp"
+filename = "fig3a_psth_exp"
 spike_time = pd.read_csv(
     path + filename + "_spike.csv", dtype=object, usecols=[1, 2, 3]
 )
