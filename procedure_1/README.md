@@ -58,7 +58,7 @@ fc_example_data.raw.h5  (MaxWell MEA Network Scan recording)
 
 | Component | Notes |
 |-----------|-------|
-| **Kilosort2** | Local [Kilosort 2.0](https://github.com/MouseLand/Kilosort/releases/tag/v2.0) install — requires MATLAB + a CUDA-capable NVIDIA GPU. |
+| **Kilosort2** | Local [Kilosort 2.0](https://github.com/MouseLand/Kilosort/releases/tag/v2.0) install — requires MATLAB + a CUDA-capable NVIDIA GPU. Download the 2.0 version [here](https://www.dropbox.com/scl/fo/xhr8wnj10d1nh8zu7yc1e/AF4NXMTK4S4XApBOKSiMWjQ?rlkey=gg5ldtm12559nqqem8phftpbh&st=5g4gaaii&dl=0). |
 | **MATLAB + toolboxes** | Required MATLAB toolboxes (e.g. Parallel Computing, Signal Processing, Statistics and Machine Learning Toolbox). |
 | **C++ compiler** | A MATLAB-compatible C++ compiler. On **Windows**: Visual Studio Community 2017 (MSVC). On **Linux/macOS**: `g++`. |
 | **CUDA GPU code** | The GPU (CUDA) commands must be compiled with the C++ compiler before first use. |
