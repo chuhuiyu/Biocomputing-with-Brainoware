@@ -25,8 +25,6 @@ audio_number = (
     240  # <-- number of audio clips, modify if using your own datasets
 )
 stim_amp_mV = 75  # stimulation amplitude in mV
-
-stim_amp_mV = 75  # stimulation amplitude in mV
 stim_amp_bits = int(stim_amp_mV / 2.92)  # convert stim amp to DAC bits
 
 with open(

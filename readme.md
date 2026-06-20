@@ -41,7 +41,7 @@ This GITHUB code repository provides code and resources related to Brainoware's 
     - 2_Electrical_stimulation_and_recording.py [**maxlab environment**]
     - 2_Electrical_stimulation_and_recording_data [**required raw recording file**]
 
-        *.raw.h5 [download [here](https://www.dropbox.com/scl/fi/2m520ce9z6iqisdgyrknr/speech_recognition_10hz_75mv_21680.raw.h5?rlkey=lfzxqpb2n848qpx6ts7jlzwfc&st=0pdrt5yv&dl=0) and save under this directory]
+        *.raw.h5 [download [here](https://www.dropbox.com/scl/fi/9gpkh0zhfyohkyl930hl1/speech_recognition_10hz_25990.raw.h5?rlkey=vwv0s5lokkztswr0zrn2si2eu&st=6hxtab5y&dl=0) and save under this directory]
     - 3_Information_decoding.ipynb [**analysis environment**]
     - 4_Readout_layer_training_and_prediction.ipynb [**analysis environment**]
     - related datasets and result files
