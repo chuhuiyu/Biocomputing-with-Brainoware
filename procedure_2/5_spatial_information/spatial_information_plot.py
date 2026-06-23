@@ -6,7 +6,7 @@
 #              Procedure 2 - Reservoir computing hardware properties
 #              5. Spatial information processing
 #              This script reads the saved spatial-information data (spatial_information_plot.xlsx,
-#              sheet "Fig 2e") and renders the evoked responses to the two complementary
+#              sheet "Fig 3e") and renders the evoked responses to the two complementary
 #              stimulation patterns (P1 and P2) as raster/heatmap plots, in the same style as
 #              the evoked-response raster of step 1 (psth_exp_..._raster.svg): electrodes on the
 #              y-axis, time on the x-axis, colour = firing, RdYlBu_r colormap.
@@ -27,7 +27,7 @@ import seaborn as sns
 here = os.path.dirname(os.path.abspath(__file__))
 data = pd.read_excel(
     os.path.join(here, "spatial_information_plot.xlsx"),
-    sheet_name="Fig 2e",
+    sheet_name="Fig 3e",
     header=None,
 )
 
