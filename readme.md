@@ -4,7 +4,7 @@ This repository contains the code implementation for the Brainoware.
 
 ## Overview
 This GITHUB code repository provides code and resources related to Brainoware's hardware properties and software framework as described in the associated Nature Protocols paper submission.
-![roadmap](roadmap/roadmap_creditChatGPT.png)
+![roadmap](roadmap/roadmap_creditChatGPT_v2.png)
 ## Contents
 - Procedure 1 — Spike sorting & functional connectivity [**sorting environment**] (see [`procedure_1/README.md`](procedure_1/README.md))
     - 1_kilosort_functional_connectivity_local
