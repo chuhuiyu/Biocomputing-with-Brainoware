@@ -4,10 +4,11 @@
 # Date:   2025-06-06
 # Description: Biocomputing with Brainoware
 #              Procedure 2 - Reservoir computing hardware properties
-#              1. Measuring evoked responses
+#              1. Measuring evoked responses (with MEA recording)
 #              This script describes how to stimulate organoids with different voltage levels and #              phase durations.
 # -------------------------------------------------------------
 
+import os
 import time
 import maxlab as mx
 from typing import Optional
@@ -185,6 +186,19 @@ if __name__ == "__main__":
 
     stim_unit_commands = configure_and_powerup_stim_units(stim_units)
 
+    ## Start recording with maxlab.Saving() ##
+    data_directory = "/home/mxwbio/Desktop/evoked_response_data"  # <-- modify the path to your data directory
+    os.makedirs(data_directory, exist_ok=True)
+    s = mx.Saving()
+    s.open_directory(data_directory)
+    s.group_delete_all()
+    s.group_define(0, "routed")
+    print(f"MaxOne: Start recording at {data_directory}")
+    time_start = str(time.strftime("%Y-%m-%d-%H-%M-%S", time.gmtime()))
+    recording_file_name = f"evoked_response_{time_start}"
+    s.start_file(recording_file_name)
+    s.start_recording([0])
+
     # At this stage, we can start the recordings. Note that, if we wish to have events written
     # to the recorded file, it is important to construct our sequence after starting the recording.
     seq = prepare_stim_sequence(
@@ -200,3 +214,11 @@ if __name__ == "__main__":
         phase_interval=2,  # 2 samples = 100us gap
     )
     send_stim_pulses_all_units(seq, number_pulse_trains=1)
+
+    ## Stop recording once all pulses have been delivered ##
+    time.sleep(
+        389
+    )  # 7*5*(10*(1+0.001)+1)=385.35 seconds, add a few seconds of buffer time here
+    s.stop_recording()
+    s.stop_file()
+    print("MaxOne: Recording stopped")

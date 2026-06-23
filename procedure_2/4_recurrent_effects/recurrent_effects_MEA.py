@@ -4,11 +4,14 @@
 # Date:   2025-06-06
 # Description: Biocomputing with Brainoware
 #              Procedure 2 - Reservoir computing hardware properties
-#              4. Recurrent effects
+#              4. Recurrent effects (with MEA recording)
 #              This script describes recurrent effects of organoid
 #              reservoir computing with single or multiple pulses.
+#              This is the recording-enabled version of recurrent_effects_MEA.py: it wraps
+#              the stimulation in a maxlab.Saving() recording so the responses are saved.
 # -------------------------------------------------------------
 
+import os
 import time
 import maxlab as mx
 
@@ -95,6 +98,23 @@ if __name__ == "__main__":
 
     stim_unit_commands = configure_and_powerup_stim_units(stim_units)
 
+    ## Start recording with maxlab.Saving() ##
+    # Open a Saving object, point it at the data directory, and define the
+    # "routed" recording group. Recording must be started BEFORE the sequence
+    # is constructed/sent so that the stimulation events are written into the
+    # recorded file (see the note below).
+    data_directory = "/home/mxwbio/Desktop/recurrent_effects_data"  # <-- modify the path to your data directory
+    os.makedirs(data_directory, exist_ok=True)
+    s = mx.Saving()
+    s.open_directory(data_directory)
+    s.group_delete_all()
+    s.group_define(0, "routed")
+    print(f"MaxOne: Start recording at {data_directory}")
+    time_start = str(time.strftime("%Y-%m-%d-%H-%M-%S", time.gmtime()))
+    recording_file_name = f"recurrent_effects_{time_start}"
+    s.start_file(recording_file_name)
+    s.start_recording([0])
+
     # At this stage, we can start the recordings. Note that, if we wish to have events written
     # to the recorded file, it is important to construct our sequence after starting the recording.
     seq = prepare_stim_sequence(
@@ -105,3 +125,11 @@ if __name__ == "__main__":
         amplitude=100,  # mV
     )
     send_stim_pulses_all_units(seq, number_pulse_trains=1)
+
+    ## Stop recording once all pulses have been delivered ##
+    time.sleep(
+        15
+    )  # 2*4 + 10*(0.4+0.0002)= 12.002 seconds, add a few seconds of buffer time here
+    s.stop_recording()
+    s.stop_file()
+    print("MaxOne: Recording stopped")
