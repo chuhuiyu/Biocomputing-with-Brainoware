@@ -82,6 +82,7 @@ Created from the provided `environment.yml`. Core packages and pinned versions:
 | spykes | - |
 | seaborn | - |
 | openpyxl | - |
+
 See [`environment.yml`](environment.yml) for the authoritative dependency list. `seaborn` and `openpyxl` are used by the Procedure 2 plotting scripts (`5_spatial_information` raster and the `.xlsx` readers in `4_recurrent_effects`/`5_spatial_information`); install with `pip install seaborn openpyxl` if not already present.
 
 ## Getting Started
