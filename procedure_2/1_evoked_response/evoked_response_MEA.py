@@ -15,7 +15,7 @@ from typing import Optional
 
 from stimulation_example_official import (
     initialize_system,
-    configure_array,
+    load_config,
     connect_stim_units_to_stim_electrodes,
     configure_and_powerup_stim_units,
     create_stim_pulse,
@@ -130,47 +130,15 @@ def prepare_stim_sequence(
 
 if __name__ == "__main__":
     initialize_system()
-    recording_electrodes = [
-        4885,
-        4666,
-        4886,
-        4022,
-        5327,
-        5328,
-        5106,
-        5326,
-        3138,
-        3140,
-        2919,
-        5105,
-        4667,
-        4448,
-        5109,
-        4669,
-        4665,
-        3798,
-        4021,
-        3141,
-        4668,
-        4240,
-        3363,
-        3803,
-        3580,
-        3801,
-        2921,
-        3799,
-        4239,
-        3359,
-        3142,
-        3797,
-        3361,
-    ]  # <-- modify based on your configuration
+    config_path = (
+        "path/to/your/config.cfg"  # <-- modify based on your configuration
+    )
     stim_electrodes = [
         3580,
         4887,
     ]  # <-- modify based on your stimulation electrodes selection
     event_counter = 1  # variable to keep track of the event_id
-    array = configure_array(recording_electrodes, stim_electrodes)
+    array = load_config(config_path)
     stim_units = connect_stim_units_to_stim_electrodes(stim_electrodes, array)
     wells = list(range(1))
     mx.activate(wells)
