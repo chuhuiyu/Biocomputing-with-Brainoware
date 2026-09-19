@@ -1,10 +1,10 @@
-# Procedure 1 — Spike Sorting & Functional Connectivity
+# Stage 1 — Spike Sorting & Functional Connectivity
 
-**Biocomputing with Brainoware — Procedure 1: Human cortical organoid generation and Brainoware hardware integration**
+**Biocomputing with Brainoware — Stage 1: Human cortical organoid generation and Brainoware hardware integration**
 
 Authors: Hongwei Cai, Huiyu Chu
 
-This procedure takes a raw **MaxOne MEA "Network Scan"** recording of a cortical
+This stage takes a raw **MaxOne MEA "Network Scan"** recording of a cortical
 organoid (Brainoware), sorts spikes with **Kilosort**, and computes a
 **functional connectivity** map between the sorted units using the spike-time
 tiling coefficient (STTC).
@@ -45,7 +45,7 @@ fc_example_data.raw.h5  (MaxWell MEA Network Scan recording)
   recording.
   - *Local:* download it from
     [Here](https://www.dropbox.com/scl/fi/yuw74vcwpnr5bnj7juy1w/fc_example_data.raw.h5?rlkey=0ry7a9fmdssw2b451k6k6l7h1&st=dzrdfhrv&dl=0)
-    and place it under `procedure_1/1_kilosort_functional_connectivity_local/`
+    and place it under `Stage_1/1_kilosort_functional_connectivity_local/`
     (alongside `kilosort.ipynb`).
   - *Colab:* downloaded automatically from Dropbox to `/content/`, along with
     `libcompression.so` (the HDF5 plugin required to read MaxOne files).
@@ -85,7 +85,7 @@ mexGPUall
 Point SpikeInterface at your Kilosort2 install:
 
 ```python
-ss.Kilosort2Sorter.set_kilosort2_path('D://Kilosort-2.0')
+ss.Kilosort2Sorter.set_kilosort2_path("D://Kilosort-2.0")
 ```
 
 
